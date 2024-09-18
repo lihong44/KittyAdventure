@@ -1,21 +1,15 @@
 namespace KittyAdventure;
 
-// one line comment
-
 public static class CommandProcessor
 {
-    public static void GetCommand()
+    public static Command GetCommand()
     {
-        // get the raw input string
-        
-        Console.Write("> ");
-        string input = Console.ReadLine();
-        
-        Command command = Parser.Parse(input);
 
-        //validate command ; 
-        //do we know the words
-        //
+        string input = IO.Read();
+        Command command = Parser.Parse(input);
+        command = CommandValidator.Validate(command);
+        
+        return command;
 
 
     }

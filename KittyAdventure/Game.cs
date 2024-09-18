@@ -1,8 +1,6 @@
 using System.Data.SqlTypes;
 
 namespace KittyAdventure;
-
-
 public static class Game    
 {
 
@@ -11,28 +9,17 @@ public static class Game
     {
         while (isPlaying)
         {
-            CommandProcessor.GetCommand();
-            
-            /* Parser is the command prompter where you can type. It should be able to recognize "VERB NOUN" and translate raw text into "VERB NOUN".*/
-            
-            /*This breaks up words by the spaces*/
-            
-            
-           /* string[] words = input.Split(' ');
-
-            if (words.Length > 2)
-                Console.WriteLine("Stop yapping bro!!");
-            foreach (string word in words)
+            Command command = CommandProcessor.GetCommand();
+            if (command.IsValid)
             {
-                Console.WriteLine(word);
-            }    
-            
-            // strings counted by the computer by starting at 0
-            if (input == "exit")
-            {
-                isPlaying = false;
+                IO.Write(command.ToString());
+                
             }
-            */
+            else
+            {
+                IO.Write("Invalid Command");
+            }
+            
         }
         
     }
