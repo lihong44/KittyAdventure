@@ -8,10 +8,14 @@ public static class CommandValidator
         // if the verb is in our list of verbs
         if (Vocabulary.IsVerb(command.Verb))
         {
-            //if the verb is ok by itself
+            Debugger.Write("Standalone verb");
             if (Vocabulary.IsStandaloneVerb(command.Verb))
             {
-                command.IsValid = true;
+                if (command.HasNoNoun())
+                {
+                    Debugger.Write("has no damn noun");
+                    command.IsValid = true; 
+                }
             }
             else if (Vocabulary.IsNoun(command.Noun))
             {

@@ -7,11 +7,17 @@ public static class Parser
         Command command = new Command();    
         input = RemoveWhitespace(input);
         
+        Debugger.Write("After removing whitespace: [" + input + "]");
+        
         Console.WriteLine(input);
 
         input = input.ToLower();
+        
+        Debugger.Write("After converting to lowercase: [" + input + "]");
 
         string[] words = input.Split(' ');
+        
+        Debugger.Write("Split into " + words.Length + " words");
 
         if (words.Length == 2)
         {
@@ -32,7 +38,7 @@ public static class Parser
     public static string RemoveWhitespace(string input)
     {
         input = input.Trim();
-
+        
         while (input.Contains("  "))
         {
             input = input.Replace("  ", " ");

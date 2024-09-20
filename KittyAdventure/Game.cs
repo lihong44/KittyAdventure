@@ -13,7 +13,14 @@ public static class Game
             if (command.IsValid)
             {
                 IO.Write(command.ToString());
-                
+                if (command.Verb == "tron")
+                {
+                    Debugger.Tron();
+                }
+                else if (command.Verb == "troff")
+                {
+                    Debugger.Troff();
+                }
             }
             else
             {

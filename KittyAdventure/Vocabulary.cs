@@ -6,7 +6,7 @@ public static class Vocabulary
         { "eat", "go"};
     
     public static List <string> standaloneVerbs = new List<string>()
-        {"look", "inventory", "exit" };
+        {"look", "inventory", "exit", "tron", "troff"};
     
     public static List <string> nouns = new List<string>()
         {"north", "south", "east", "west", "up", "down"};
@@ -25,4 +25,7 @@ public static class Vocabulary
         return nouns.Contains(word); 
         /* check this bro*/
     }
+    
+    
+
 }
