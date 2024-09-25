@@ -7,10 +7,7 @@ public static class Game
     private static bool isPlaying = true;
     public static void Play()
     {
-        Location location1 = new Location(name: "Forest Clearing",
-            description: "forest filled with kitties yay");
-        Location locationHallway = new Location(name: "Hallway",
-            description: "yerrr hallway");
+
         while (isPlaying)
         {
             Command command = CommandProcessor.GetCommand();
