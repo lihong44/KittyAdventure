@@ -2,6 +2,7 @@ namespace KittyAdventure;
 
 public static class Map
 {
+    public static Location StartLocation;
     public static void Initialize()
     {
         Location clawiseum = new Location(name: "Clawiseum",
@@ -9,15 +10,15 @@ public static class Map
         Location whiskerWoods = new Location(name: "Whisker Woods",
             "A path with heavy paw traffic. Cats of all tribes wander down this main road. Path leads north and south.");
         Location tunaFalls = new Location(name: "Tuna Falls",
-            "REPLACE.");
+            "Tuna fish fly off the ledge, faintly splashing at the bottom of the lake. Path leads south.");
         Location pawprintPlaza = new Location(name: "Pawprint Plaza",
-            "REPLACE.");
+            "A bustling market filled with curious scents of fish and catnip. The crossroad leads in all directions.");
         Location catnipCove = new Location(name: "Catnip Cove",
             "REPLACE.");
         Location questionMark = new Location(name: "??????",
             "REPLACE.");
         Location meowManors = new Location(name: "Meow Manors",
-            "REPLACE.");
+            "Your neighborhood. The smell of homecooked tuna is in the air.");
         Location felineFairground = new Location(name: "Feline Fairground",
             "REPLACE.");
         Location yarnheartCastle = new Location(name: "Yarnheart Castle",
@@ -66,12 +67,10 @@ public static class Map
         
         grimRest.AddConnection(direction: "ascend", questionMark);
         grimRest.AddConnection(direction: "east", abandonedParts);
-        grimRest.AddConnection(direction: "descend", questionMark);
+        grimRest.AddConnection(direction: "descend", shattered);
         grimRest.AddConnection(direction: "west", hollowsTerror);
         
         hollowsTerror.AddConnection(direction: "east", grimRest);
-        
-        grimRest.AddConnection(direction: "ascend", questionMark);
         
         abandonedParts.AddConnection(direction: "west", grimRest);
         
@@ -82,8 +81,14 @@ public static class Map
         loveless.AddConnection(direction: "descend", theVoid);
         
         theVoid.AddConnection(direction: "ascend", loveless);
+
+        StartLocation = meowManors;
         
-        
-        
+        Item key = new Item(name: "Key", description: "Short for kitty. Helpful fella who opens your door for you", locationDescription: "There is a key near you.");
+        meowManors.AddItem(key);
+
+        Item beer = new Item(name: "Beer", description: "Who leaves a perfectly good beer outside?", locationDescription: "A beer sits beside the key.");
+        meowManors.AddItem(beer);
+
     }
 }

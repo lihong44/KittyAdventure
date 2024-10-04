@@ -7,30 +7,24 @@ public static class Game
     private static bool isPlaying = true;
     public static void Play()
     {
-
+        Initialize();
         while (isPlaying)
         {
             Command command = CommandProcessor.GetCommand();
             if (command.IsValid)
             {
-                IO.Write(command.ToString());
-                if (command.Verb == "tron")
-                {
-                    Debugger.Tron();
-                }
-                else if (command.Verb == "troff")
-                {
-                    Debugger.Troff();
-                }
-            }
-            else
-            {
-                IO.Write("Invalid Command");
+                Debugger.Write(command.ToString());
+                CommandHandler.Handle(command);
             }
             
         }
-        
     }
+
+    private static void Initialize()
+    {
+        Map.Initialize();
+        Player.Initialize();
+    } 
 }
 
 /* 9/10: comma seperated values is data seperated by commas -> breaks it up wherever there's a comma.

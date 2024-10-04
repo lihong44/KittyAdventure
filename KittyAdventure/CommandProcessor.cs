@@ -11,8 +11,7 @@ public static class CommandProcessor
         
         Command command = Parser.Parse(input);
 
-        Debugger.Write("After parsing: Verb = [" + command.Verb + 
-                       "], Noun = [" + command.Noun + "]");
+        Debugger.Write("After parsing: Verb = [" + command.Verb + "], Noun = [" + command.Noun + "]");
         command = CommandValidator.Validate(command);
         
         return command;

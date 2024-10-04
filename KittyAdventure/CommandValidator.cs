@@ -16,12 +16,24 @@ public static class CommandValidator
                     Debugger.Write("has no damn noun");
                     command.IsValid = true; 
                 }
+                else
+                {
+                    IO.Write("No clue what that even means meow!");
+                }
             }
             else if (Vocabulary.IsNoun(command.Noun))
             {
                 command.IsValid = true;
             }
+            else
+            {
+                IO.Write("I don't know what" + command.Noun + "means...");
+            }
             
+        }
+        else
+        {
+            IO.Write("Mrow, what does " + command.Verb + "mean?");
         }
         
         return command;
