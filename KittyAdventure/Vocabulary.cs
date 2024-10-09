@@ -3,7 +3,7 @@ namespace KittyAdventure;
 public static class Vocabulary
 {
     public static List <string> notStandaloneVerbs = new List<string>()
-        { "eat", "go", "take", "ascend", "descend"};
+        { "eat", "go", "take", "ascend", "descend", "drop"};
     
     public static List <string> standaloneVerbs = new List<string>()
         {"look", "inventory", "exit", "tron", "troff"};

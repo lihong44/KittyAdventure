@@ -46,7 +46,7 @@ public class Location
         
         foreach (Item item in Items)
         {
-            fullDescription = fullDescription + "\n" + item.LocationDescription;
+            fullDescription = fullDescription + "\n" + item.GetLocationDescription();
         }
 
         return fullDescription;
@@ -68,6 +68,11 @@ public class Location
     public void RemoveItem(Item item)
     {
         Items.Remove(item);
+    }
+
+    public void DropItem(Item item)
+    {
+        Items.Add(item);
     }
 }
 

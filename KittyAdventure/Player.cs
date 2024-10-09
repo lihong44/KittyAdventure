@@ -9,6 +9,7 @@ public static class Player
     {
         currentLocation = Map.StartLocation;
         IO.Write(currentLocation.GetDescription());
+        Inventory = new List<Item>();
     }
     public static void Move(Command command)
     {
@@ -46,7 +47,28 @@ public static class Player
             IO.Write("You take the " + command.Noun + ".");
             
         }
-
        
+    }
+    public static string GetLocationDescription()
+    {
+        return currentLocation.GetDescription();
+    }
+
+    public static void Drop(Command command)
+    {
+        //find the item in inventory: lambda
+        Item? item = Inventory.FirstOrDefault(i => 
+            i.Name.ToLower() == command.Noun.ToLower());
+
+        if (item != null)
+        {
+            Inventory.Remove(item);
+            currentLocation.DropItem(item);
+            IO.Write($"You drop the {item.Name}.");
+        }
+        //put item at location
+        //print out text dropping item
+        //else
+        //print out you are dumb
     }
 }

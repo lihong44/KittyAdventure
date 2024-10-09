@@ -84,10 +84,10 @@ public static class Map
 
         StartLocation = meowManors;
         
-        Item key = new Item(name: "Key", description: "Short for kitty. Helpful fella who opens your door for you", locationDescription: "There is a key near you.");
+        Item key = new Item(name: "Key", description: "Short for kitty. Helpful fella who opens your door for you", initialLocationDescription: "There is a key waving at you.");
         meowManors.AddItem(key);
 
-        Item beer = new Item(name: "Beer", description: "Who leaves a perfectly good beer outside?", locationDescription: "A beer sits beside the key.");
+        Item beer = new Item(name: "Beer", description: "Who leaves a perfectly good beer outside?", initialLocationDescription: "A beer sits off to the side, trying to play it cool.");
         meowManors.AddItem(beer);
 
     }
