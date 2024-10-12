@@ -8,8 +8,6 @@ public static class Parser
         input = RemoveWhitespace(input);
         
         Debugger.Write("After removing whitespace: [" + input + "]");
-        
-        Console.WriteLine(input);
 
         input = input.ToLower();
         

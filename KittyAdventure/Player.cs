@@ -21,20 +21,20 @@ public static class Player
           
         else
         {
-            IO.Write("cant go that way meow");
+            IO.Write("Can't go that way meow!");
         }
         
     }
 
     public static void Take(Command command)
     {
-        IO.Write("taking " + command.Noun);
+        IO.Write("taking " + command.Noun + "...");
    
         Item item = currentLocation.FindItem(command.Noun);
 
         if (item == null)
         {
-            IO.Write("There is no " + command.Noun + "here. Had too much catnip?");
+            IO.Write("There is no " + command.Noun + " here. Had too much catnip?");
         }
         else if (!item.IsTakeable)
         {
@@ -70,5 +70,24 @@ public static class Player
         //print out text dropping item
         //else
         //print out you are dumb
+    }
+
+    public static void ShowInventory()
+    {
+        if (Inventory.Count == 0)
+        {
+            IO.Write("Not a single item to your name.");
+        }
+        else
+        {
+            IO.Write("You are carrying:");
+            foreach (Item item in Inventory)
+            {
+                //office hours, ask about this
+                string article = SemanticTools.CreateArticle(item.Name);
+                IO.Write(" " + article + " " + item.Name);
+                
+            }
+        }
     }
 }

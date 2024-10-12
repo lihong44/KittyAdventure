@@ -27,13 +27,13 @@ public static class CommandValidator
             }
             else
             {
-                IO.Write("I don't know what" + command.Noun + "means...");
+                IO.Write("I don't know what" + command.Noun + " means...");
             }
             
         }
         else
         {
-            IO.Write("Mrow, what does " + command.Verb + "mean?");
+            IO.Write("Mrow, what does " + command.Verb + " mean?");
         }
         
         return command;

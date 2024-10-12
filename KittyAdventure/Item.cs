@@ -2,16 +2,24 @@ namespace KittyAdventure;
 
 public class Item
 {
-    public string Name;
+    public string Name { get;  }
     //function
-    public string Description;
-    public string InitialLocationDescription;
+    public string Description { get;  }
+    public string InitialLocationDescription { get;  }
     public int UseCount;
     //expiration
-    public bool IsTakeable;
-    public bool IsEdible;
-    public bool HasBeenPickedUp = false;
+    public bool IsTakeable { get;  }
+    public bool IsEdible { get;  }
+    public bool HasBeenPickedUp { get; private set; } = false;
 
+    public string LocationDescription
+    {
+        get
+        {
+            string article = SemanticTools.CreateArticle(Name);
+            return $"There is {article} {Name} here.";
+        }
+    }
     public Item(string name, string description, string initialLocationDescription, bool isTakeable = true)
     {
         Name = name;
@@ -29,7 +37,7 @@ public class Item
     public string GetLocationDescription()
     {
         if (HasBeenPickedUp)
-            return Description;
+            return LocationDescription;
         else
             return InitialLocationDescription;
     }
