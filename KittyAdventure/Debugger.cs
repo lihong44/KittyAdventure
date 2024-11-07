@@ -10,7 +10,9 @@ public static class Debugger
     {
         if (isActive)
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             IO.Write(message);
+            Console.ResetColor();
         }
     }
 

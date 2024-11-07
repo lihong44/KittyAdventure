@@ -2,40 +2,17 @@ namespace KittyAdventure;
 
 public static class CommandValidator
 {
-    
     public static Command Validate(Command command)
     {
-        // if the verb is in our list of verbs
-        if (Vocabulary.IsVerb(command.Verb))
+        switch (States.GetCurrentState())
         {
-            Debugger.Write("Standalone verb");
-            if (Vocabulary.IsStandaloneVerb(command.Verb))
-            {
-                if (command.HasNoNoun())
-                {
-                    Debugger.Write("has no damn noun");
-                    command.IsValid = true; 
-                }
-                else
-                {
-                    IO.Write("No clue what that even means meow!");
-                }
-            }
-            else if (Vocabulary.IsNoun(command.Noun))
-            {
-                command.IsValid = true;
-            }
-            else
-            {
-                IO.Write("I don't know what" + command.Noun + " means...");
-            }
-            
+            case StateType.Exploring:
+                return ExplorationCommandValidator.Validate(command);
+                break;
+            case StateType.Conversation:
+                return ConversationCommandValidator.Validate(command);
+                break;
         }
-        else
-        {
-            IO.Write("Mrow, what does " + command.Verb + " mean?");
-        }
-        
-        return command;
-    }
+        return new Command();
+    } 
 }

@@ -1,16 +1,10 @@
 namespace KittyAdventure;
 
-public enum StateType
-{
-    Exploring
-    ,Combat
-    ,Conversation
-}
 public class States
 {
     private static State currentState;
-    private static Dictionary<StateType, State> states 
-        new Dictionary<StateType, State>();
+    private static Dictionary<StateType, State> states
+        = new Dictionary<StateType, State>();
 
     public static void Initialize()
     {
@@ -45,5 +39,6 @@ public class States
         currentState.Deactivate();
         currentState = states[type];
         currentState.Activate();
+        Debugger.Write("Entering state: " + currentState.Type);
     }
 }

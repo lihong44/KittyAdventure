@@ -1,18 +1,21 @@
 namespace KittyAdventure;
 
-public class CommandHandler
+public class Prompt
 {
-    public static void Handle(Command command)
+    public static void Show()
     {
         switch (States.GetCurrentState())
         {
             case StateType.Exploring:
-                ExplorationCommandHandler.Handle(command);
+                IO.Write("> ");
                 break;
             case StateType.Conversation:
-                ExplorationCommandHandler.Handle(command);
+                IO.Write(":(y,n,leave %)");
                 break;
-            
+            default:
+                IO.Write("> ");
+                break;
         }
     }
+    
 }

@@ -9,7 +9,6 @@ public static class IO
    
    public static string Read()
    {
-      Console.Write("> ");
       return Console.ReadLine();
    }
 
