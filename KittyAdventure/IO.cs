@@ -2,7 +2,7 @@ namespace KittyAdventure;
 
 public static class IO
 {
-   public static void Write(string output)
+   public static void WriteLine(string output)
    {
       Console.WriteLine(output);
    }
