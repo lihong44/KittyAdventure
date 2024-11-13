@@ -2,7 +2,7 @@ namespace KittyAdventure;
 
 public static class IO
 {
-   public static void WriteLine(string output)
+   public static void Write(string output)
    {
       Console.WriteLine(output);
    }
@@ -17,5 +17,7 @@ public static class IO
       Console.ForegroundColor = ConsoleColor.Red;
       Write("ERROR: " + output);
       Console.ResetColor();
+      
+      
    }
 }

@@ -90,4 +90,25 @@ public static class Player
             }
         }
     }
+
+    public static void Use(Command command)
+    {
+        if (command.Noun == "beer")
+        {
+            Conditions.ChangeCondition(ConditionType.IsDrunk, true);
+        }
+    }
+
+    public static void MoveToLocation(string locationName)
+    {
+        if (newLocation = null)
+        {
+            IO.Write("There is no location with named: " + locationName + "." );
+        }
+
+        currentLocation = newLocation;
+        IO.Write(currentLocation.GetDescription());
+
+
+    }
 }

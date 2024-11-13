@@ -7,6 +7,7 @@ public static class ExplorationCommandHandler
         {
             {"go", Move}
             ,{"take", Take}
+            ,{"use", Use}
             ,{"tron", Tron}
             ,{"troff", Troff}
             ,{"look", Look}
@@ -15,7 +16,11 @@ public static class ExplorationCommandHandler
             ,{"talk", EnterConversationState}
         };
 
-   
+    private static void Use(Command command)
+    {
+        Player.Use(command);
+    }
+
 
     public static void Handle(Command command)
     {

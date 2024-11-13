@@ -9,6 +9,8 @@ public static class Conditions
     {
         Condition isDrunked = new Condition(ConditionType.IsDrunk);
         isDrunked.AddToActivateCallList(action: ConditionActions.WriteOutput("Hic!"));
+       // isDrunked.AddToActivateCallList(ConditionActions.AddMapConnection(
+           // "Meow Manors", ""));
         AddCondition(isDrunked);
     }
     
